@@ -55,9 +55,9 @@ class GenerateData:
         print(file_path)
         print("begin save_data :")
         if new_file:
-            file = open(file_path,'w',encoding="UTF-8")   
+            file = open(file_path,"w",encoding="UTF-8")   
         else:
-            file = open(file_path,'a',encoding="UTF-8")   
+            file = open(file_path,"a",encoding="UTF-8")   
         print(file)
         x_size = len(x_array)
         y_size = len(y_array)
