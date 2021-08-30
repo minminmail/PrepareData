@@ -1,0 +1,114 @@
+@relation  .aa20828a20828
+@attribute 10.57130019782533 real[0.12237398308782588,15.99196201115062]
+@attribute 14.822555594677107 real[0.23625532947876948,15.977963066860793]
+@attribute red{red,green}
+@inputs 10.57130019782533,14.822555594677107
+@outputs red
+@data
+
+@decisiontree
+
+if ( 10.57130019782533 <= 12.551984 ) then
+{
+	if ( 10.57130019782533 <= 9.150159 ) then
+	{
+		if ( 10.57130019782533 <= 3.933884 ) then
+		{
+			if ( 10.57130019782533 <= 2.273140 ) then
+			{
+				red = "green"
+			}
+			elseif ( 10.57130019782533 > 2.273140 ) then
+			{
+				if ( 14.822555594677107 <= 8.386852 ) then
+				{
+					if ( 14.822555594677107 <= 6.447524 ) then
+					{
+						red = "green"
+					}
+					elseif ( 14.822555594677107 > 6.447524 ) then
+					{
+						red = "red"
+					}
+				}
+				elseif ( 14.822555594677107 > 8.386852 ) then
+				{
+					red = "green"
+				}
+			}
+		}
+		elseif ( 10.57130019782533 > 3.933884 ) then
+		{
+			red = "green"
+		}
+	}
+	elseif ( 10.57130019782533 > 9.150159 ) then
+	{
+		if ( 14.822555594677107 <= 13.872184 ) then
+		{
+			if ( 14.822555594677107 <= 3.757950 ) then
+			{
+				if ( 10.57130019782533 <= 11.106639 ) then
+				{
+					red = "green"
+				}
+				elseif ( 10.57130019782533 > 11.106639 ) then
+				{
+					if ( 14.822555594677107 <= 3.304525 ) then
+					{
+						red = "red"
+					}
+					elseif ( 14.822555594677107 > 3.304525 ) then
+					{
+						if ( 14.822555594677107 <= 3.564628 ) then
+						{
+							red = "green"
+						}
+						elseif ( 14.822555594677107 > 3.564628 ) then
+						{
+							red = "red"
+						}
+					}
+				}
+			}
+			elseif ( 14.822555594677107 > 3.757950 ) then
+			{
+				red = "green"
+			}
+		}
+		elseif ( 14.822555594677107 > 13.872184 ) then
+		{
+			if ( 10.57130019782533 <= 10.681877 ) then
+			{
+				red = "red"
+			}
+			elseif ( 10.57130019782533 > 10.681877 ) then
+			{
+				red = "green"
+			}
+		}
+	}
+}
+elseif ( 10.57130019782533 > 12.551984 ) then
+{
+	red = "green"
+}
+
+@TotalNumberOfNodes 12
+@NumberOfLeafs 13
+@TotalNumberOfNodes 12
+@NumberOfAntecedentsByRule 4.769230769230769
+
+@NumberOfItemsetsTraining 298
+@NumberOfCorrectlyClassifiedTraining 293
+@PercentageOfCorrectlyClassifiedTraining 98.32215%
+@NumberOfInCorrectlyClassifiedTraining 5
+@PercentageOfInCorrectlyClassifiedTraining 1.6778524%
+
+@NumberOfItemsetsTest 33
+@NumberOfCorrectlyClassifiedTest 31
+@PercentageOfCorrectlyClassifiedTest 93.93939%
+@NumberOfInCorrectlyClassifiedTest 2
+@PercentageOfInCorrectlyClassifiedTest 6.060606%
+
+@ElapsedTime 0:0:0

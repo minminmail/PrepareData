@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-import numpy as np
-import os
+
 from pathlib import Path
 from pandas import DataFrame
+from sys import exit
 
 
-class ReadConfigFile:
+class ReadDataSet:
     lineCounter = 0
     file_first_line = None
     dataset_folder = 'A2'
@@ -155,9 +155,87 @@ class ReadConfigFile:
             print("Inside read data file , Exception is: " + format(error))
 
             exit(1)
+            
+    def read_result_data_file(self, result_file_name):
+        data_string_array = []
+        try:
+            print("File to be opened is : " + str(result_file_name))
+            with result_file_name.open() as data_file:
+                print("fileName.open() as data_file......")
+                file_lines = data_file.readlines()
+
+                matrix_column = []
+                header = []
+
+                for line in file_lines:
+                    if "@" in line:
+                        print("@ line is " + str(line))
+                        line_string = str(line)
+                        if "@relation" in line:
+                            sub_line_data = line_string.split()
+                            print("sub_line_data")
+                            print(sub_line_data)
+                            for word in sub_line_data:
+                                print("word is :" + str(word))
+                            self.dataset_name = sub_line_data[1]
+                            print("self.dataset_name is " + self.dataset_name)
+                            print("sub_line_data[1] is " + sub_line_data[1])
+
+                        elif "@attribute" in line:
+                            sub_line_data = str(line).split()
+                            sub_line_data[1] = sub_line_data[1].replace('\'', '')
+                            if sub_line_data[1].lower() == "class":
+                                header.append("class")
+                                for i in range(0, len(sub_line_data)):
+                                    print("the i class is :" + sub_line_data[i])
+                                    class_name = sub_line_data[i].replace('{', '')
+                                    class_name = class_name.replace('}', '')
+                                    class_name = class_name.replace(',', '')
+                                    class_name = class_name.replace('\n', '')
+                                    class_name = class_name.replace('\'', '')
+                                    print("class_name:" + class_name)
+                                    self.classes.append(class_name)
+                            else:
+                                print("attributes_names is " + sub_line_data[1])
+                                attribute_name = sub_line_data[1]
+                                attribute_name = attribute_name.replace('\'', '')
+                                print("attributes_names is " + attribute_name)
+                                
+                                attribute_name = attribute_name.replace('{', ',')
+                                attribute_name = attribute_name.replace('}', '')
+                       
+                                attribute_name = attribute_name.replace('\n', '')
+                                attribute_name = attribute_name.replace('\'', '')
+                                print("attributes_names after replace is " + attribute_name)
+                                self.attributes_names.append(attribute_name)
+                                #header.append(attribute_name)
+
+
+
+                    else:
+                        #print("data line is " + str(line))
+                        data_string_array.append(line)
+                        datas = line.split(" ")
+                        row = []
+                        for each_date in datas:
+                            each_date = each_date.replace('\n', '')
+                            row.append(each_date)
+                        matrix_column.append(row)
+                print("the header  is :")
+                print(header)
+                print("the df shape is :")
+                df = DataFrame(matrix_column)
+                # print(df)
+                print(df.shape)
+             
+                return df
+
+        except Exception as error:
+            print("Inside read result data file , Exception is: " + format(error))
+            exit(1)
 
 
 if __name__ == "__main__":
-    read_file = ReadConfigFile
+    read_file = ReadDataSet()
     read_file.main(read_file)
 

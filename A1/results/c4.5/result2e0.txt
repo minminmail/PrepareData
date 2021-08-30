@@ -1,0 +1,51 @@
+@relation  distaa1828a1828
+@attribute 5.3 real[0.19,16.0]
+@attribute 5.5 real[0.0,12.0]
+@attribute green{green,red}
+@inputs 5.3,5.5
+@outputs green
+@data
+
+@decisiontree
+
+if ( 5.3 <= 7.196048 ) then
+{
+	if ( 5.5 <= 2.178201 ) then
+	{
+		green = "red"
+	}
+	elseif ( 5.5 > 2.178201 ) then
+	{
+		if ( 5.3 <= 5.900000 ) then
+		{
+			green = "green"
+		}
+		elseif ( 5.3 > 5.900000 ) then
+		{
+			green = "red"
+		}
+	}
+}
+elseif ( 5.3 > 7.196048 ) then
+{
+	green = "green"
+}
+
+@TotalNumberOfNodes 3
+@NumberOfLeafs 4
+@TotalNumberOfNodes 3
+@NumberOfAntecedentsByRule 2.25
+
+@NumberOfItemsetsTraining 113
+@NumberOfCorrectlyClassifiedTraining 108
+@PercentageOfCorrectlyClassifiedTraining 95.57522%
+@NumberOfInCorrectlyClassifiedTraining 5
+@PercentageOfInCorrectlyClassifiedTraining 4.424779%
+
+@NumberOfItemsetsTest 13
+@NumberOfCorrectlyClassifiedTest 12
+@PercentageOfCorrectlyClassifiedTest 92.30769%
+@NumberOfInCorrectlyClassifiedTest 1
+@PercentageOfInCorrectlyClassifiedTest 7.6923075%
+
+@ElapsedTime 0:0:0

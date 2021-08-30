@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from MaxMin import MaxMin
+
 from SeperateTraTst import SeperateTraTst
 import os
 

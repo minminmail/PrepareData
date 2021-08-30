@@ -1,0 +1,121 @@
+@relation  .aa20828a20828
+@attribute 10.57130019782533 real[0.12237398308782588,15.99196201115062]
+@attribute 14.822555594677107 real[0.23625532947876948,15.977963066860793]
+@attribute red{red,green}
+@inputs 10.57130019782533,14.822555594677107
+@outputs red
+@data
+
+@decisiontree
+
+if ( 10.57130019782533 <= 2.330058 ) then
+{
+	red = "green"
+}
+elseif ( 10.57130019782533 > 2.330058 ) then
+{
+	if ( 10.57130019782533 <= 3.043592 ) then
+	{
+		if ( 14.822555594677107 <= 8.544090 ) then
+		{
+			if ( 14.822555594677107 <= 6.825059 ) then
+			{
+				red = "green"
+			}
+			elseif ( 14.822555594677107 > 6.825059 ) then
+			{
+				red = "red"
+			}
+		}
+		elseif ( 14.822555594677107 > 8.544090 ) then
+		{
+			red = "green"
+		}
+	}
+	elseif ( 10.57130019782533 > 3.043592 ) then
+	{
+		if ( 14.822555594677107 <= 13.872184 ) then
+		{
+			if ( 14.822555594677107 <= 6.825059 ) then
+			{
+				if ( 14.822555594677107 <= 2.966355 ) then
+				{
+					red = "green"
+				}
+				elseif ( 14.822555594677107 > 2.966355 ) then
+				{
+					if ( 14.822555594677107 <= 3.264567 ) then
+					{
+						if ( 10.57130019782533 <= 11.187048 ) then
+						{
+							red = "green"
+						}
+						elseif ( 10.57130019782533 > 11.187048 ) then
+						{
+							red = "red"
+						}
+					}
+					elseif ( 14.822555594677107 > 3.264567 ) then
+					{
+						if ( 10.57130019782533 <= 4.204281 ) then
+						{
+							if ( 14.822555594677107 <= 5.498600 ) then
+							{
+								red = "green"
+							}
+							elseif ( 14.822555594677107 > 5.498600 ) then
+							{
+								red = "red"
+							}
+						}
+						elseif ( 10.57130019782533 > 4.204281 ) then
+						{
+							red = "green"
+						}
+					}
+				}
+			}
+			elseif ( 14.822555594677107 > 6.825059 ) then
+			{
+				red = "green"
+			}
+		}
+		elseif ( 14.822555594677107 > 13.872184 ) then
+		{
+			if ( 10.57130019782533 <= 10.681877 ) then
+			{
+				if ( 10.57130019782533 <= 8.463700 ) then
+				{
+					red = "green"
+				}
+				elseif ( 10.57130019782533 > 8.463700 ) then
+				{
+					red = "red"
+				}
+			}
+			elseif ( 10.57130019782533 > 10.681877 ) then
+			{
+				red = "green"
+			}
+		}
+	}
+}
+
+@TotalNumberOfNodes 13
+@NumberOfLeafs 14
+@TotalNumberOfNodes 13
+@NumberOfAntecedentsByRule 5.142857142857143
+
+@NumberOfItemsetsTraining 298
+@NumberOfCorrectlyClassifiedTraining 291
+@PercentageOfCorrectlyClassifiedTraining 97.65101%
+@NumberOfInCorrectlyClassifiedTraining 7
+@PercentageOfInCorrectlyClassifiedTraining 2.3489933%
+
+@NumberOfItemsetsTest 33
+@NumberOfCorrectlyClassifiedTest 32
+@PercentageOfCorrectlyClassifiedTest 96.969696%
+@NumberOfInCorrectlyClassifiedTest 1
+@PercentageOfInCorrectlyClassifiedTest 3.030303%
+
+@ElapsedTime 0:0:0

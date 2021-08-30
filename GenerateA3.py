@@ -8,19 +8,28 @@ from pathlib import Path
 
 class GenerateA3:
     
+    dataset_folder = 'A3'
+    data_folder = 'dataset'
+    cwd = Path.cwd()
 
     file_valid_name = None
+    data_file =  cwd / dataset_folder / data_folder /'data3.dat'
+    data_red =  cwd / dataset_folder / data_folder / 'data_red3.dat'
+    data_green =  cwd / dataset_folder / data_folder / 'data_green3.dat'
  
     
-    def generate_disjunct(draw_instance, fig,ax, x_min,x_max,y_min,y_max,number,class_type,data_file,new_file,category_new_file):
+    def generate_disjunct(self,draw_instance, fig,ax, x_min,x_max,y_min,y_max,number,class_type,data_file,new_file,category_new_file):
         
+        '''
         dataset_folder = 'A3'
         data_folder = 'dataset'
 
         cwd = Path.cwd()
-        data_file =  cwd / dataset_folder / data_folder / 'data3.dat'
-        data_red =  cwd / dataset_folder / data_folder / 'data_red3.dat'
-        data_green =  cwd / dataset_folder / data_folder / 'data_red3.dat'
+        data_file =  cwd / dataset_folder / data_folder /'data3.dat'
+        data_red =  cwd / dataset_folder / data_folder /'data_red3.dat'
+        data_green =  cwd / dataset_folder / data_folder /'data_green3.dat'
+        '''
+        
         print("Before the generate data in GenerateData")
         generate = GenerateData(x_min,x_max,y_min,y_max,number,class_type)
         value_array = generate.generate()
@@ -40,24 +49,26 @@ class GenerateA3:
         if class_type =="red":
             paint_shape='^'
             paint_color = 'red'
-            category_file = data_red
+            category_file = self.data_red
         else:
             paint_shape='o'
             paint_color = 'green'
-            category_file = data_green
+            category_file = self.data_green
             
-        # draw_instance.paint_with_arrays(fig,ax,x_array,y_array,paint_shape, paint_color)
+        draw_instance.paint_with_arrays(fig,ax,x_array,y_array,paint_shape, paint_color)
 
+        # x_array,y_array,class_type,category_new_file
+        generate.save_data(x_array,y_array,class_type,category_file,category_new_file)
+        
+        
         # x_array,y_array,class_type,data_file
         generate.save_data(x_array,y_array,class_type,data_file,category_new_file)
-        generate.save_data(x_array,y_array,class_type,category_file,category_new_file)
+     
     
-    
-    if __name__ == "__main__":
-        
+    def main(self):
         fig, ax = plt.subplots()
         draw =Draw()
-        data_file = 'data3.dat'
+
      
         
         # small disjunct one
@@ -69,8 +80,8 @@ class GenerateA3:
         class_type1="red"
         new_file = True
         category_new_file = True
-        
-        generate_disjunct(draw,fig,ax, x1_min,x1_max,y1_min,y1_max,number1,class_type1,data_file,new_file,category_new_file )
+               
+        self.generate_disjunct(draw,fig,ax, x1_min,x1_max,y1_min,y1_max,number1,class_type1,self.data_file,new_file,category_new_file )
         
         # small disjunct two
         x2_min=12.2
@@ -81,7 +92,7 @@ class GenerateA3:
         class_type2="red"
         new_file = False
         category_new_file = False
-        generate_disjunct(draw,fig,ax,x2_min,x2_max,y2_min,y2_max,number2,class_type2,data_file,new_file,category_new_file )
+        self.generate_disjunct(draw,fig,ax,x2_min,x2_max,y2_min,y2_max,number2,class_type2,self.data_file,new_file,category_new_file )
         
     
         
@@ -93,12 +104,18 @@ class GenerateA3:
         number4=960
         class_type4="green"
         new_file = False
-        category_new_file = True
-        generate_disjunct(draw,fig,ax,x4_min,x4_max,y4_min,y4_max,number4,class_type4,data_file,new_file,category_new_file )
+        category_new_file = False
+        self.generate_disjunct(draw,fig,ax,x4_min,x4_max,y4_min,y4_max,number4,class_type4,self.data_file,new_file,category_new_file )
         
         
-        draw.set_read_files(data_green,data_red)
+        draw.set_read_files(self.data_green,self.data_red)
         draw.paint()
+        
+    
+    
+if __name__ == "__main__":
+        
+    GenerateA3().main()
    
     
 

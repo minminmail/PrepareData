@@ -1,0 +1,10 @@
+@Number of rules: 8
+
+1: 5.3 IS L_1 AND 5.5 IS L_1: green with Rule Weight: 0.6030039204704769
+2: 5.3 IS L_0 AND 5.5 IS L_0: red with Rule Weight: 0.6550260864719812
+3: 5.3 IS L_1 AND 5.5 IS L_0: green with Rule Weight: 0.9300510545477959
+4: 5.3 IS L_0 AND 5.5 IS L_1: green with Rule Weight: 0.07141194095354628
+5: 5.3 IS L_1 AND 5.5 IS L_2: green with Rule Weight: 0.6867295387061527
+6: 5.3 IS L_2 AND 5.5 IS L_1: green with Rule Weight: 0.9159846860347469
+7: 5.3 IS L_2 AND 5.5 IS L_2: green with Rule Weight: 0.8280648619788569
+8: 5.3 IS L_2 AND 5.5 IS L_0: green with Rule Weight: 1.0
